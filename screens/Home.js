@@ -27,24 +27,6 @@ const Home = ({ navigation }) => {
           type="clear"
         />
       </View>
-      {/*
-            <Button mode="contained"
-           color="#000"
-           buttonColor="black"
-           style={styles.button}
-           labelStyle={{ color: "white", fontSize: 18 }}
-           contentStyle={styles.buttonContainer}
-           onPress={() => navigation.navigate('Login')}
-           >
-            Sign Up
-           </Button>
-           <Button
-            labelStyle={{ color: "#4361ee", fontSize: 14 }}
-            onPress={() => navigation.navigate('Auth')}
-           >
-            ¿Eres doctor? Sing up
-           </Button>
-            */}
     </View>
   );
 };
