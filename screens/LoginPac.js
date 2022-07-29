@@ -4,9 +4,6 @@ import { Button, Input } from "react-native-elements";
 import { supabase } from "../lib/initSupabase";
 import { Formik } from "formik";
 import { object, string } from "yup";
-import {useDispatch, useSelector} from 'react-redux';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {login} from '../feautures/userSlice';
 
 
 const validationSchema = object({
@@ -19,24 +16,21 @@ const validationSchema = object({
 
 export default function LoginPac({ navigation }) {
   const [loading, setLoading] = useState(false);
-  const dispatch = useDispatch();
-
-  async function signInWithEmail(values) {
+  
+   function signInWithEmail(values) {
     if(!values.email && !values.password){
       return Alert.alert('Complete los campos')
     }else{
       setLoading(true);
-      const { user, session, error } = await supabase.auth.signIn({
+      const { user, session, error } =  supabase.auth.signIn({
         email: values.email,
         password: values.password,
       });
-      dispatch(login(user));
-      AsyncStorage.setItem('session', JSON.stringify(user, session))
   
       if (error) Alert.alert(error.message);
       setLoading(false);
       
-      if(user){
+      if(session){
         navigation.navigate('Tabs')
       }
     }

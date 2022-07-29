@@ -1,11 +1,10 @@
+import {useState, useEffect} from 'react'
 import { Platform } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import { Provider } from "react-redux";
+import { Provider} from "react-redux";
 import { ThemeProvider, colors } from "react-native-elements";
-
-import store from "./store/store";
-
-import AuthStack from "./navigation/AuthStack";
+import store from './store/store'
+import Main from './Main';
 const theme = {
   colors: {
     ...Platform.select({
@@ -16,11 +15,12 @@ const theme = {
 };
 
 export default function App() {
+ 
   return (
     <ThemeProvider theme={theme}>
-      <NavigationContainer>
+      <NavigationContainer> 
         <Provider store={store}>
-          <AuthStack />
+         <Main />
         </Provider>
       </NavigationContainer>
     </ThemeProvider>
