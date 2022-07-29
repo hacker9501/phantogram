@@ -1,6 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import {getFocusedRouteNameFromRoute} from '@react-navigation/native';  
+import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import HomePac from "../screens/HomePac";
 import ChatPac from "../screens/ChatPac";
 import AppointmentPac from "./../screens/AppointmentPac";
@@ -11,15 +11,6 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 const Tab = createBottomTabNavigator();
 
-function getTabVisible(route) {
-  const routeName = getFocusedRouteNameFromRoute(route) ?? 'HomePac';
-
-
-if (routeName === 'HomePac') {
-  return 'none';
-}
-return 'flex';
-}
 
 export default function Tabs() {
   return (
@@ -34,9 +25,7 @@ export default function Tabs() {
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="home" color={color} size={size} />
           ),
-          
         }}
-    
       />
       <Tab.Screen
         name="AppointmentPac"
@@ -54,7 +43,7 @@ export default function Tabs() {
         component={ChatPac}
         options={{
           headerShown: false,
-          tabBarLabel: "Home",
+          tabBarLabel: "Chat",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="wechat" color={color} size={size} />
           ),
@@ -65,7 +54,7 @@ export default function Tabs() {
         component={ProfilePac}
         options={{
           headerShown: false,
-          tabBarLabel: "Home",
+          tabBarLabel: "Profile",
           tabBarIcon: ({ color, size }) => (
             <FontAwesome name="user" color={color} size={size} />
           ),
