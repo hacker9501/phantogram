@@ -13,13 +13,17 @@ import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import BackgroundHeader from "../components/BackgroundHeader";
 const windowWidth = Dimensions.get("window").width;
-const windowHeight = Dimensions.get("window").height;
+import {useSelector, useDispatch} from 'react-redux';
+import {signOut} from '../feautures/authSlice'
+
 
 export default function ProfilePac() {
+  const dispatch = useDispatch();
+  const {session} = useSelector(state => state.auth)
 
   async function signOutWithEmail() {
+    dispatch(signOut())
     const { error } = await supabase.auth.signOut()
-    console.log('Running')
     if(error) Alert.alert(error.message)
   }
 

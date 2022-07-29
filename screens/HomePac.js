@@ -1,14 +1,14 @@
 import * as React from "react";
 import { Text, View, StyleSheet, ScrollView, Dimensions } from "react-native";
 import CardHome from "../components/CardHome";
-import Face from "../components/Face";
-import {useSelector} from 'react-redux';
 import BackgroundHeader from "../components/BackgroundHeader";
 const W = Dimensions.get("window").width;
-import store from '../store/store'
+import Face from "../components/Face";
+import {supabase} from '../lib/initSupabase';
 
 export default function HomePac() {
-  console.log(store.getState());
+  const user = supabase.auth.user();
+  console.log(user)
   return (
     <>
       <BackgroundHeader style={styles.bg} />

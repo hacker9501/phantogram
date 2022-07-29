@@ -1,5 +1,4 @@
 import * as React from "react";
-import { supabase } from "../lib/initSupabase";
 import {
   Text,
   View,
@@ -33,8 +32,6 @@ const appointments = [
 ];
 
 export default function AppointmentPac() {
-  const session = supabase.auth.session();
-  console.log(session)
   return (
     <>
       <BackgroundHeader style={styles.bg1} />
