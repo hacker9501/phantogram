@@ -5,6 +5,7 @@ import { Provider} from "react-redux";
 import { ThemeProvider, colors } from "react-native-elements";
 import store from './store/store'
 import Main from './Main';
+
 const theme = {
   colors: {
     ...Platform.select({
@@ -13,14 +14,14 @@ const theme = {
     }),
   },
 };
-
+console.log(process.env)
 export default function App() {
  
   return (
     <ThemeProvider theme={theme}>
       <NavigationContainer> 
         <Provider store={store}>
-         <Main />
+         <Main/>
         </Provider>
       </NavigationContainer>
     </ThemeProvider>

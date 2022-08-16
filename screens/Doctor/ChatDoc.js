@@ -1,12 +1,14 @@
 import * as React from "react";
 import { Text, View, StyleSheet, ScrollView, Dimensions } from "react-native";
-import BackgroundHeader from "../components/BackgroundHeader";
+import CardHome from "../../components/CardHome";
+import BackgroundHeader from "../../components/BackgroundHeader";
 const W = Dimensions.get("window").width;
-import {supabase} from '../lib/initSupabase';
-import ChatDocComp from '../components/ChatDocComp';
+import Face from "../../components/Face";
+import {supabase} from '../../lib/initSupabase';
+import ChatDocComp from './../../components/ChatDocComp';
 import { Searchbar } from 'react-native-paper';
 
-export default function ChatPac() {
+export default function PatientsDoc() {
   const user = supabase.auth.user();
   console.log(user)
   return (

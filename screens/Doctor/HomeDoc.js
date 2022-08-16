@@ -1,83 +1,74 @@
 import * as React from "react";
 import { Text, View, StyleSheet, ScrollView, Dimensions } from "react-native";
-import BackgroundHeader from "../components/BackgroundHeader";
+import CardHome from "../../components/CardHome";
+import BackgroundHeader from "../../components/BackgroundHeader";
 const W = Dimensions.get("window").width;
-import {supabase} from '../lib/initSupabase';
-import ChatDocComp from '../components/ChatDocComp';
-import { Searchbar } from 'react-native-paper';
+import Face from "../../components/Face";
+import {supabase} from '../../lib/initSupabase';
+import AppointmentDoc from "../../components/AppointmentDoccomp";
+import AppointmentDoccomp from './../../components/AppointmentDoccomp';
 
-export default function ChatPac() {
+export default function HomeDoc() {
   const user = supabase.auth.user();
   console.log(user)
   return (
     <>
       <BackgroundHeader style={styles.bg} />
-      <Searchbar style={styles.buscador} placeholder="Search"/>
       <ScrollView style={styles.container}>
         <View style={styles.headerContainer}>
-        <Text style={styles.desc}></Text>
+          <Text style={styles.heading}>Hi</Text>
+          <Text style={styles.desc}>Dr. Alexander!</Text><br/>
+          <Text style={styles.ctas}>Citas de Hoy</Text>
         </View>
-         {/* <View style={styles.faceContainer}>
+        {/* <View style={styles.faceContainer}>
           <Face icon="laughing" color="#E23f9c" title="Greet" />
           <Face icon="slightly-smile" title="Good" color="#C55696" />
           <Face icon="neutral" title="Okey" color="#A5008C" full />
           <Face icon="frowning" title="Bad" color="#827791" />
           <Face icon="expressionless" title="Awful" />
-        </View>  */}
+        </View> */}
         <View>
-          <ChatDocComp
+          <AppointmentDoccomp
             // title="Your Next Appointment"
             info={{
               name: "Natasha Romanoff",
               time: "Sunday, May 15th at 8:00 PM",
               address: "570 Kemmer Shores",
               detail: "San Francisco, CA 90293",
+              islike: true,
             }}
           />
-          <ChatDocComp
+          <AppointmentDoccomp
             // title="Specialist in your area"
             info={{
               name: "Monica Rambeau",
               time: "Popular Pharma Limited",
               address: "Dermatologists",
               detail: "San Francisco, CA | 5 min",
+              islike: true,
+            
+            
             }}
           />
-          <ChatDocComp
+          <AppointmentDoccomp
             // title="Your Next Appointment"
             info={{
               name: "Natasha Romanoff",
               time: "Sunday, May 15th at 8:00 PM",
               address: "570 Kemmer Shores",
               detail: "San Francisco, CA 90293",
+              islike: true,
             }}
           />
-          <ChatDocComp
+          <AppointmentDoccomp
             // title="Specialist in your area"
             info={{
               name: "Monica Rambeau",
               time: "Popular Pharma Limited",
               address: "Dermatologists",
               detail: "San Francisco, CA | 5 min",
-              
-            }}
-          />
-          <ChatDocComp
-            // title="Your Next Appointment"
-            info={{
-              name: "Natasha Romanoff",
-              time: "Sunday, May 15th at 8:00 PM",
-              address: "570 Kemmer Shores",
-              detail: "San Francisco, CA 90293",
-            }}
-          />
-          <ChatDocComp
-            // title="Specialist in your area"
-            info={{
-              name: "Monica Rambeau",
-              time: "Popular Pharma Limited",
-              address: "Dermatologists",
-              detail: "San Francisco, CA | 5 min",
+              islike: true,
+             
               
             }}
           />
@@ -95,16 +86,16 @@ const styles = StyleSheet.create({
   headerContainer: {
     padding: 20,
     paddingHorizontal: 30,
-    marginTop: -50,
-  },
-  buscador: {
-    padding: 10,
-    marginTop: 1,
+    marginTop: 2,
   },
   heading: {
     fontSize: 32,
     fontWeight: "bold",
     color: "#fff",
+  },
+  ctas: {
+    color:"black",
+    fontSize: 30,
   },
   desc: {
     fontSize: 20,
@@ -123,7 +114,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
-    marginTop: 10,
+    marginTop: 20,
   },
   bg: {
     position: "absolute",
@@ -131,3 +122,4 @@ const styles = StyleSheet.create({
     height: 250,
   },
 });
+

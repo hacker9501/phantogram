@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Alert, Dimensions } from "react-native";
 import { Button, Input } from "react-native-elements";
-import { supabase } from "../lib/initSupabase";
+import {supabase} from "../../lib/initSupabase";
 import { Formik } from "formik";
-import { object, string } from "yup";
+import { object, string } from "yup"; 
+
 
 const validationSchema = object({
   email: string()
@@ -13,7 +14,7 @@ const validationSchema = object({
     .required("Required password")
 });
 
-export default function LoginPac({ navigation }) {
+export default function LoginDoc({ navigation }) {
   const [loading, setLoading] = useState(false);
   
    function signInWithEmail(values) {
@@ -30,7 +31,7 @@ export default function LoginPac({ navigation }) {
       setLoading(false);
       
       if(session){
-        navigation.navigate('Tabs')
+        navigation.navigate('TabsDoc')
       }
     }
   }
@@ -90,7 +91,7 @@ export default function LoginPac({ navigation }) {
           <Button
             title="¿Eres nuevo? Sing up"
             disabled={loading}
-            onPress={() => navigation.navigate("RegisterPac")}
+            onPress={() => navigation.navigate("RegisterDoc")}
             type="clear"
           />
         </View>
@@ -118,4 +119,3 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
 });
-

@@ -6,13 +6,14 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { LinearGradient } from "expo-linear-gradient";
 
-export default function CardHome({ title, info, noHeader, noFooter, book }) {
+
+export default function ChatDocComp({ title, info, noHeader, noFooter, book }) {
   return (
     <View style={styles.cardContainer}>
       {!noHeader && (
         <View style={styles.cardHeaderContaner}>
           <Text style={styles.cardHeading}>{title}</Text>
-          <Text style={styles.cardMore}>See All</Text>
+          {/* <Text style={styles.cardMore}></Text> */}
         </View>
       )}
       <View style={styles.cardBody}>
@@ -20,7 +21,7 @@ export default function CardHome({ title, info, noHeader, noFooter, book }) {
           <Image
             style={styles.cardAvatar}
             source={{
-              uri: "https://images.theconversation.com/files/304957/original/file-20191203-66986-im7o5.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip",
+              uri: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
             }}
           />
           <View style={styles.cardLeftSide}>
@@ -56,7 +57,7 @@ export default function CardHome({ title, info, noHeader, noFooter, book }) {
         </View>
         {!noFooter && <View style={styles.margin} />}
 
-        {!noFooter && (
+        {/* {!noFooter && (
           <View style={styles.cardBodyBottom}>
             <View style={styles.cardGroupIcon}>
               <AntDesign name="checkcircleo" size={32} />
@@ -75,7 +76,7 @@ export default function CardHome({ title, info, noHeader, noFooter, book }) {
               <Text style={styles.cardBottomTitle}>Directions</Text>
             </View>
           </View>
-        )}
+        )} */}
       </View>
     </View>
   );

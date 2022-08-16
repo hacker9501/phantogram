@@ -6,32 +6,50 @@ import {
   SafeAreaView,
   FlatList,
   Dimensions,
+  Button,
   ScrollView
 } from "react-native";
 const W = Dimensions.get("window").width;
-import AppointmentCard from "../components/AppointmentCard";
-import BackgroundHeader from "../components/BackgroundHeader";
+import AppointmentDocCard from "../../components/AppointmentDocCard";
+import BackgroundHeader from "../../components/BackgroundHeader";
 
 const appointments = [
   {
     id: 1,
     name: "Phaco Surge",
     date: "Today at 6:00PM",
-    doctor: "David Bronsworth",
+    paciente: "David Bronsworth",
     duration: "120 Mins",
-    category: "Physiotherapy",
+    category: "Paciente",
   },
   {
     id: 2,
-    name: "María Elena",
+    name: "David Bronsworth",
     date: "Tuesday at 3:00PM",
-    doctor: "David Bronsworth",
+    paciente: "Maria Elena",
     duration: "30 Mins",
-    category: "Physiotherapy",
+    category: "Paciente",
   },
+  {
+    id: 3,
+    name: "Phaco Surge",
+    date: "Today at 6:00PM",
+    paciente: "David Bronsworth",
+    duration: "120 Mins",
+    category: "Paciente",
+  },
+  {
+    id: 4,
+    name: "David Bronsworth",
+    date: "Tuesday at 3:00PM",
+    paciente: "Maria Elena",
+    duration: "30 Mins",
+    category: "Paciente",
+  },
+  
 ];
 
-export default function AppointmentPac() {
+export default function AppointmentDoc() {
   return (
     <>
       <BackgroundHeader style={styles.bg1} />
@@ -41,14 +59,17 @@ export default function AppointmentPac() {
           <Text style={styles.title}>Reminder</Text>
           <Text style={styles.text}>
             Don't forget schedule for upcoming appointment
-          </Text>
+          </Text><br/>
+          <Text style={styles.ctas}>Citas de Hoy</Text>
+          {/* <Button title="Cancel" onPress={() => navigation.navigate("")} />
+          <Button title="Cancel" onPress={() => navigation.navigate("")} /> */}
         </View>
         <View>
           <FlatList
             data={appointments}
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => {
-              return <AppointmentCard item={item} />;
+              return <AppointmentDocCard item={item} />;
             }}
           />
         </View>
@@ -74,6 +95,10 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 15,
     color: "#fff",
+  },
+  ctas: {
+    color:"black",
+    fontSize: 30,
   },
   bg1: {
     position: "absolute",

@@ -1,6 +1,5 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import HomePac from "../screens/HomePac";
 import ChatPac from "../screens/ChatPac";
 import AppointmentPac from "./../screens/AppointmentPac";
@@ -8,15 +7,20 @@ import ProfilePac from "../screens/ProfilePac";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import HomeDoc from './../screens/Doctor/HomeDoc';
+import App from './../App';
+import ChatDoc from "../screens/Doctor/ChatDoc";
+import AppointmentDoc from "../screens/Doctor/AppointmentDoc";
+import PatientsDoc from './../screens/Doctor/PatientsDoc';
 
 const Tab = createBottomTabNavigator();
 
-export default function Tabs() {
+export default function TabsDoc() {
   return (
     <Tab.Navigator headerShown="false">
       <Tab.Screen
-        name="HomePac"
-        component={HomePac}
+        name="HomeDoc"
+        component={HomeDoc}
         options={{
           headerShown: false,
           tabBarVisible: false,
@@ -25,10 +29,10 @@ export default function Tabs() {
             <MaterialCommunityIcons name="home" color={color} size={size} />
           ),
         }}
-      />
+    />
       <Tab.Screen
-        name="AppointmentPac"
-        component={AppointmentPac}
+        name="AppointmentDoc"
+        component={AppointmentDoc}
         options={{
           headerShown: false,
           tabBarLabel: "Appointment",
@@ -38,8 +42,8 @@ export default function Tabs() {
         }}
       />
       <Tab.Screen
-        name="ChatPac"
-        component={ChatPac}
+        name="ChatDoc"
+        component={ChatDoc}
         options={{
           headerShown: false,
           tabBarLabel: "Chat",
@@ -49,11 +53,11 @@ export default function Tabs() {
         }}
       />
       <Tab.Screen
-        name="ProfilePac"
-        component={ProfilePac}
+        name="PatientsDoc"
+        component={PatientsDoc}
         options={{
           headerShown: false,
-          tabBarLabel: "Profile",
+          tabBarLabel: "Patients",
           tabBarIcon: ({ color, size }) => (
             <FontAwesome name="user" color={color} size={size} />
           ),
@@ -62,3 +66,4 @@ export default function Tabs() {
     </Tab.Navigator>
   );
 }
+

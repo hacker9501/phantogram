@@ -1,21 +1,22 @@
 import * as React from "react";
 import { Text, View, StyleSheet, ScrollView, Dimensions } from "react-native";
-import BackgroundHeader from "../components/BackgroundHeader";
+import CardHome from "../../components/CardHome";
+import BackgroundHeader from "../../components/BackgroundHeader";
 const W = Dimensions.get("window").width;
-import {supabase} from '../lib/initSupabase';
-import ChatDocComp from '../components/ChatDocComp';
-import { Searchbar } from 'react-native-paper';
+import Face from "../../components/Face";
+import {supabase} from '../../lib/initSupabase';
+import AppointmentDoccomp from './../../components/AppointmentDoccomp';
 
-export default function ChatPac() {
+export default function PatientsDoc() {
   const user = supabase.auth.user();
   console.log(user)
   return (
     <>
       <BackgroundHeader style={styles.bg} />
-      <Searchbar style={styles.buscador} placeholder="Search"/>
       <ScrollView style={styles.container}>
         <View style={styles.headerContainer}>
-        <Text style={styles.desc}></Text>
+          <Text style={styles.heading}>Pacientes Registrados</Text>
+          <Text style={styles.desc}></Text>
         </View>
          {/* <View style={styles.faceContainer}>
           <Face icon="laughing" color="#E23f9c" title="Greet" />
@@ -25,7 +26,7 @@ export default function ChatPac() {
           <Face icon="expressionless" title="Awful" />
         </View>  */}
         <View>
-          <ChatDocComp
+          <AppointmentDoccomp
             // title="Your Next Appointment"
             info={{
               name: "Natasha Romanoff",
@@ -34,7 +35,7 @@ export default function ChatPac() {
               detail: "San Francisco, CA 90293",
             }}
           />
-          <ChatDocComp
+          <AppointmentDoccomp
             // title="Specialist in your area"
             info={{
               name: "Monica Rambeau",
@@ -43,7 +44,7 @@ export default function ChatPac() {
               detail: "San Francisco, CA | 5 min",
             }}
           />
-          <ChatDocComp
+          <AppointmentDoccomp
             // title="Your Next Appointment"
             info={{
               name: "Natasha Romanoff",
@@ -52,7 +53,7 @@ export default function ChatPac() {
               detail: "San Francisco, CA 90293",
             }}
           />
-          <ChatDocComp
+          <AppointmentDoccomp
             // title="Specialist in your area"
             info={{
               name: "Monica Rambeau",
@@ -62,7 +63,7 @@ export default function ChatPac() {
               
             }}
           />
-          <ChatDocComp
+          <AppointmentDoccomp
             // title="Your Next Appointment"
             info={{
               name: "Natasha Romanoff",
@@ -71,7 +72,7 @@ export default function ChatPac() {
               detail: "San Francisco, CA 90293",
             }}
           />
-          <ChatDocComp
+          <AppointmentDoccomp
             // title="Specialist in your area"
             info={{
               name: "Monica Rambeau",
@@ -95,11 +96,7 @@ const styles = StyleSheet.create({
   headerContainer: {
     padding: 20,
     paddingHorizontal: 30,
-    marginTop: -50,
-  },
-  buscador: {
-    padding: 10,
-    marginTop: 1,
+    marginTop: 52,
   },
   heading: {
     fontSize: 32,
@@ -123,7 +120,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
-    marginTop: 10,
+    marginTop: 20,
   },
   bg: {
     position: "absolute",

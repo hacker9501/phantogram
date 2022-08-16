@@ -23,7 +23,7 @@ const Home = ({ navigation }) => {
       <View style={styles.verticallySpaced}>
         <Button
           title="¿Eres doctor? Sing up"
-          onPress={() => navigation.navigate("RegisterPac")}
+          onPress={() => navigation.navigate("LoginDoc")}
           type="clear"
         />
       </View>
